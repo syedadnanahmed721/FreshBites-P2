@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - FreshBites</title>
+  <link rel="stylesheet" href="checkout.css"/>
+</head>
+<body>
+
+<!-- Header & Navbar -->
+<header class="navbar">
+  <a href="main.html" class="logo">
+    <h1>🍱 FreshBites</h1>
+  </a>
+  <ul class="nav-links">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="menu.html">🍽 Menu</a></li>
+      <li><a href="track.html">📍 Track Order</a></li>
+      <li><a href="checkout.html" class="active">🧾Checkout</a></li>
+      <li><a href="cart.html" class="cart">🛒 Add To Cart</a></li>
+  </ul>
+</header>
+
+<section class="checkout-container">
+  <!-- Order Summary -->
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <div id="orderItems"></div>
+    <p class="total">Total: ₹<span id="totalAmount">0</span></p>
+  </div>
+
+  <!-- Delivery Details -->
+  <div class="checkout-form">
+    <h2>Delivery Details</h2>
+    <form id="checkoutForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="address" placeholder="Full Address" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+
+      <h3>Payment Method</h3>
+      <label><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label>
+      <label><input type="radio" name="payment" value="UPI"> UPI</label>
+
+      <button type="submit" class="place-order-btn">Place Order</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const orderItemsContainer = document.getElementById("orderItems");
+  const totalContainer = document.getElementById("totalAmount");
+
+  function renderCheckout() {
+    orderItemsContainer.innerHTML = "";
+    if (cart.length === 0) {
+      orderItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+      totalContainer.textContent = 0;
+      return;
+    }
+
+    let total = 0;
+    cart.forEach(item => {
+      const qty = Number(item.quantity || 0);
+      const price = Number(item.price || 0);
+      const lineTotal = qty * price;
+      total += lineTotal;
+
+      orderItemsContainer.innerHTML += `
+        <div class="order-item">
+          <img src="${item.img}" alt="${item.name}">
+          <span>${item.name} x ${qty}</span>
+          <span>₹${lineTotal}</span>
+        </div>
+      `;
+    });
+
+    totalContainer.textContent = total;
+  }
+
+  document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("✅ Your order is on the way! 🚚");
+    localStorage.removeItem("cart");
+    window.location.href = "track.html";
+  });
+
+  // Update mobile total dynamically
+function updateMobileTotal() {
+  const mobileTotal = document.getElementById("mobileTotal");
+  const total = totalContainer.textContent || 0;
+  mobileTotal.textContent = total;
+}
+
+renderCheckout();
+updateMobileTotal();
+
+</script>
+<!-- Floating Total Bar for Mobile -->
+<div class="floating-total">
+    <span>Total: ₹<span id="mobileTotal">0</span></span>
+    <button onclick="document.querySelector('.place-order-btn').click();">Checkout</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Order - FreshBites</title>
+  <link rel="stylesheet" href="track-order.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="main.html" class="logo">🍱 FreshBites</a>
+    <ul class="nav-links">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="menu.html">🍽 Menu</a></li>
+      <li><a class="active" href="track.html">📍 Track Order</a></li>
+      <li><a href="checkout.html">🧾 Checkout</a></li>
+      <li><a href="cart.html" class="cart">🛒 Add To Cart</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="tracking">
+    <div class="tracking-card">
+      <h2>🚚 Track Your Order</h2>
+      <p>Your Order ID: <strong>#FB12345</strong></p>
+
+      <!-- Progress Tracker -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+
+        <!-- Delivery boy -->
+        <div class="delivery-boy" id="delivery-boy">
+          <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Delivery Boy">
+        </div>
+
+        <div class="progress-steps">
+          <div class="step active">Order Placed</div>
+          <div class="step">Preparing</div>
+          <div class="step">Out for Delivery</div>
+          <div class="step">Delivered</div>
+        </div>
+      </div>
+
+      <!-- Status + Timer -->
+      <p id="status-message">Your food order has been placed 🍴</p>
+      <p><strong>Estimated Delivery Time:</strong> <span id="timer">30:00</span></p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 FreshBites. All Rights Reserved.
+  </footer>
+
+  <script src="track-order.js"></script>
+</body>
+</html>

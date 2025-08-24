@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart - FreshBites</title>
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+<header class="navbar">
+  <a href="main.html" class="logo">🍱 FreshBites</a>
+  <a class="back-btn" href="menu.html">⬅ Back to Menu</a>
+</header>
+
+<!-- Use the SAME id the script expects -->
+<section id="cartContainer" class="cart-container"></section>
+
+<div class="cart-summary">
+  <div class="total">Total: ₹<span id="cart-total">0</span></div>
+  <a href="checkout.html"><button class="checkout-btn">Proceed to Checkout</button></a>
+</div>
+
+<script>
+  function renderCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cartContainer");
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p>Your cart is empty.</p>";
+      document.getElementById("cart-total").textContent = 0;
+      return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const qty = Number(item.quantity || 0);
+      const price = Number(item.price || 0);
+      const lineTotal = qty * price;
+      total += lineTotal;
+
+      container.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.img}" alt="${item.name}" width="60" height="60">
+          <div class="cart-name">${item.name}</div>
+          <div class="cart-qty">
+            <button onclick="decrease(${index})">−</button>
+            <span>${qty}</span>
+            <button onclick="increase(${index})">+</button>
+          </div>
+          <div class="cart-price">₹${price} x ${qty} = ₹${lineTotal}</div>
+          <button class="remove" onclick="removeItem(${index})">❌</button>
+        </div>
+      `;
+    });
+
+    document.getElementById("cart-total").textContent = total;
+  }
+
+  function increase(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart[index]) cart[index].quantity = Number(cart[index].quantity || 0) + 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  function decrease(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart[index]) {
+      cart[index].quantity = Math.max(1, Number(cart[index].quantity || 0) - 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  function removeItem(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>
