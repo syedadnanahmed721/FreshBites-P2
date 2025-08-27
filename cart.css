@@ -1,0 +1,113 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(8px);
+    color: white;
+}
+.logo {
+  text-decoration: none;  /* remove underline from link */
+  color: white;           /* keep text white */
+  display: inline-block;  /* makes it behave nicely */
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;           /* ensure text stays white */
+}
+
+header {
+    text-align: left;
+    padding: 1rem;
+    background: #E63946;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* pushes items apart */
+}
+
+.back-btn {
+    text-decoration: none;
+    background: #FFD166;
+    color: rgba(0, 0, 0, 0.733);
+    padding: 0rem 1rem;
+    border-radius: 5px;
+    margin-left: auto; /* pushes it to the right */
+}
+
+
+.cart-container {
+    padding: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 209, 102, 0.85);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.item-details {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.quantity-controls button {
+    background: #06D6A0;
+    border: none;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: #E63946;
+    border: none;
+    color: white;
+    padding: 0.4rem 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-summary {
+    position: sticky;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: center;
+}
+
+.checkout-btn {
+    background: #06D6A0;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.empty-msg {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: #FFD166;
+}

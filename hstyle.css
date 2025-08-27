@@ -1,0 +1,236 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body with full-screen background & overlay */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') no-repeat center center/cover;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Dark overlay effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+/* Navbar */
+.logo {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 77, 77, 0.9);
+    padding: 15px 20px;
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: 0.3s;
+}
+
+.nav-links li a.active,
+.nav-links li a:hover {
+    background: white;
+    color: #ff4d4d;
+    border-radius: 25px;
+}
+
+/* Hero Section */
+.hero {
+    color: #FFD166;
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.btn {
+    background-color: #2A9D8F;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+   background-color: #F8961E;
+   transform: scale(1.05);
+}
+
+/* Offers Section */
+.offers {
+    padding: 40px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.offers h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #FFD166;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.offer-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.offer-box img {
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.offer-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Why Us Section */
+.why-us {
+    padding: 40px 20px;
+    text-align: center;
+    background: #fff5f500;
+}
+
+.why-us h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #FFD166;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.why-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.why-box img {
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.why-box:hover {
+    transform: translateY(-5px);
+}
+
+/* App Download Section */
+.app-download {
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-download h2 {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.app-buttons img {
+    height: 50px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.app-buttons img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: rgba(34, 34, 34, 0.95);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+}
